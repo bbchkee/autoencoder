@@ -1,0 +1,75 @@
+set terminal png size 3000,3000 font ",10"
+set xlabel "MHz"
+#set xrange[-1:1]
+#set yrange[0:5.5]
+set ylabel "Amplitude"
+
+set title "Convolution with ones trace"
+set output "plots/filters_full.png"
+set style fill solid 0.5
+#set autoscale fix
+#set yrange [0:1]
+#do for [l=1:1]{
+#	do for [f=0:15]{ 
+#		set title sprintf("layer %i filter %i",l, f)
+#		infile = sprintf("out/layer%ifilter%i.tab",l,f)		
+#		plot infile w l lc rgb "red" lw 2 notitle
+#	}
+#}
+
+set yrange [0.01:10]
+set logscale y
+
+#set xrange[0:20]
+width = 23.5249
+set boxwidth width
+set output "plots/layer1.png"
+infile = sprintf("out/layer0.tab")
+set multiplot layout 8,8
+do for [f=1:64]{ 
+	set title sprintf("filter %i", f)
+	plot infile u (column(0)*width+width/2):(column(f)) with boxes lc rgb "red" notitle
+}
+unset multiplot  
+
+#set yrange [0:0.25]
+#set output "plots/layer2.png"
+#infile = sprintf("out/layer1.tab")
+#set multiplot layout 11,12
+#do for [f=1:128]{ 
+#	set title sprintf("filter %i", f)
+#	plot infile u (column(0)):f w l lc rgb "red" lw 2 notitle
+#}
+#unset multiplot
+
+#set yrange [0:0.25]
+#set output "plots/layer3.png"
+#infile = sprintf("out/layer2.tab")
+#set multiplot layout 4,4
+#do for [f=1:16]{ 
+#	set title sprintf("filter %i", f)
+#	plot infile u (column(0)):f w l lc rgb "red" lw 2 notitle
+#}
+#unset multiplot  
+  
+#set yrange [0:0.25]
+#set output "plots/layer4.png"
+#infile = sprintf("out/layer3.tab")
+#set multiplot layout 3,3
+#do for [f=1:8]{ 
+#	set title sprintf("filter %i", f)
+#	plot infile u (column(0)):f w l lc rgb "red" lw 2 notitle
+#}
+#unset multiplot  
+
+
+
+#set title sprintf("NETWORK INPUT")
+#infile = sprintf("out/layer0filter0.tab")		
+#plot infile w l lc rgb "blue" lw 2 notitle
+		
+#set title sprintf("NETWORK OUTPUT")
+#infile = sprintf("out/layer9filter0.tab")		
+#plot infile w l lc rgb "blue" lw 2 notitle
+		
+
