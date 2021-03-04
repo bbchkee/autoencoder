@@ -5,6 +5,7 @@ Neural TRex v0.9.5
 
 ### 1. converter.py
 *Complete*
+
 Used for convert from ADST to numpy binary format.
 arguments
 --signal: signal file
@@ -14,6 +15,7 @@ output: 2 numpy files
 
 ### 2. creator.py
 *In progress*
+
 Used for creation of training or test sets or change vectors dimension for neural network.
 Use "upsampling" for create dataset with augmentation.
 arguments
@@ -26,6 +28,7 @@ output: 2 numpy files
 
 ### 3. trainer.py
 *In progress*
+
 Used for create and train CCN via uDocker container
 arguments
 --signal: signals
@@ -39,6 +42,7 @@ output: model in h5 file
 
 ### 4. denoiser.py
 *In progress*
+
 Used for denoising input file.
 arguments
 --noise: noised signals
@@ -48,6 +52,7 @@ output: 1 numpy file
 
 ### 5. estimator.py
 *In progress*
+
 Creates .csv table which summarizing result.
 arguments
 --true: true signals
@@ -58,6 +63,7 @@ output: 1 csv file
 
 ### 6. plotter.py
 *In progress*
+
 Used for plot graphics based on result from csv table.
 arguments
 --input: csv files from estimator
